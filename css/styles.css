@@ -532,12 +532,31 @@ a.footer-logo {
 .portfolio-link {
   display: block;
 }
+.portfolio-overlay {
+  position: relative;
+  overflow: hidden;
+}
 
 .portfolio-link:hover,
 .portfolio-link:focus {
   /* display: block; */
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.portfolio-link:hover .overlay-top,
+.portfolio-link:focus .overlay-top {
+  transform: translateY(0);
+}
+
+.portfolio-link:hover .overlay-middle,
+.portfolio-link:focus .overlay-middle {
+  transform: translateX(0);
+}
+
+.portfolio-link:hover .overlay-bottom,
+.portfolio-link:focus .overlay-bottom {
+  transform: translate(0);
 }
 
 .portfolion-block {
@@ -560,4 +579,39 @@ a.footer-logo {
   font-size: 16px;
   line-height: 1.87;
   color: var(--main-text-color);
+}
+
+.overlay {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+}
+
+.overlay-top {
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay-middle {
+  transform: translateX(-101%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay-bottom {
+  transform: translate(100%, 100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay-text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  width: 322px;
+  color: var(--third-text-color);
 }
